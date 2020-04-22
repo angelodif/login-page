@@ -52,11 +52,20 @@
 			</p>
 			<p>
 				<label>Email</label>
-				<input type="text" name="email">
+				<input type="text" id="email" name="email">
 				<label>Password</label>
-				<input type="password" name="password">
+				<input type="password" id="password" name="password">
 			</p>
 			<button onclik="accedi">Sign in</button>
 		 </div>
 </body>
+
+<script type="text/javascript">
+	function accedi(){
+		var email = $("#email").val();
+		var password = $("#password").val();
+		console.log("email "+email+" password"+password);
+	}
+</script>
+
 </html>
