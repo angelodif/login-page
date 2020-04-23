@@ -76,14 +76,17 @@
         "email": email,
         "password": password
 })})
+store();
+check(email, password);
 
+};
 // Storing input from login-form
 function store() {
     localStorage.setItem('email', email);
     localStorage.setItem('password', password);
 }
 
-function check() {
+function check(email, password) {
     // stored data from the login-form
     var storedEmail = localStorage.getItem('email');
     var storedPassword = localStorage.getItem('password');
@@ -105,7 +108,7 @@ function check() {
 
 
 
-	};
+
 </script>
 
 </body>
