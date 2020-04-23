@@ -76,6 +76,35 @@
         "email": email,
         "password": password
 })})
+
+// Storing input from login-form
+function store() {
+    localStorage.setItem('email', email);
+    localStorage.setItem('password', password);
+}
+
+function check() {
+    // stored data from the login-form
+    var storedEmail = localStorage.getItem('email');
+    var storedPassword = localStorage.getItem('password');
+    // entered data from the login-form
+    var userEmail = email;
+    var userPassword = password;
+    // check if stored data from register-form is equal to data from login form
+    if(userEmail.value == storedEmail && userPassword.value == storedPassword) {
+        alert('You are loged in.');
+    }else {
+        alert('Error');
+    }
+}
+
+
+
+
+
+
+
+
 	};
 </script>
 
