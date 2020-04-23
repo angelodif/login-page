@@ -62,10 +62,19 @@
 
 <script type="text/javascript">
 	function accedi(){
-		var email = $("#email").val();
-		var password = $("#password").val();
-		console.log("email "+email+" password"+password);
-	}
+		var email = document.getElementById("email").value;
+		var password = document.getElementById("password").value;
+		console.log("email "+email+" password "+password);
+		fetch('https://reqres.in/api/login', { 
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+        "email": email,
+        "password": password
+})})
+	};
 </script>
 
 </html>
