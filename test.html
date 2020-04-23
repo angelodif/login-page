@@ -21,11 +21,14 @@
 			font-family: arial;
 			box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 		}
-		img{
-			width: 50%;
+		.imgbox{
+			height: 200px;
+			width: 200px;
 			background-color: #e3e3e3;
 			border-radius: 50%;
-			align-items: center;
+		}
+		img{
+			width: 100%;
 		}
 		input{
 			border-radius: 3px;
@@ -44,9 +47,9 @@
 </head>
 <body class=conteiner>
 		<div class="box">
-			<p style="text-align: center">
+			<div class="imgbox">
 				<img src="https://npm.github.io/new-docs/public/images/publishing.svg">
-			</p>
+			</div>
 			<p>
 				<b>Sign in</b>
 			</p>
@@ -56,13 +59,11 @@
 				<label>Password</label>
 				<input type="password" id="password" name="password">
 			</p>
-			<button onclik="accedi">Sign in</button>
+			<button onclick="accedi()">Sign in</button>
 		 </div>
-</body>
 
-<script type="text/javascript">
+	<script>
 	function accedi(){
-		
 		var email = document.getElementById("email").value;
 		var password = document.getElementById("password").value;
 		console.log("email "+email+" password "+password);
@@ -78,4 +79,5 @@
 	};
 </script>
 
+</body>
 </html>
