@@ -22,8 +22,8 @@
 			box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 		}
 		.imgbox{
-			height: 200px;
-			width: 200px;
+			max-height: 200px;
+			max-width: 200px;
 			background-color: #e3e3e3;
 			border-radius: 50%;
 		}
@@ -64,42 +64,31 @@
 
 	<script>
 	function accedi(){
+		var token;
 		var email = document.getElementById("email").value;
 		var password = document.getElementById("password").value;
 		console.log("email "+email+" password "+password);
-		fetch('https://reqres.in/api/login', { 
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-        "email": email,
-        "password": password
-})})
-store();
-check(email, password);
+		const response = fetch('https://reqres.in/api/login', { 
+        	method: 'POST',
+        	headers: {
+            	'Content-Type': 'application/json',
+        	},
+        	body: JSON.stringify({
+        	"email": email,
+        	"password": password
+		})});
+		response.then((data) => {
+  console.log('Success:', data);
+});
+		response.then((data) => {
+			console.log(data);
+		var risposta=data.json(); 
+		console.log(risposta);
+		console.log("token "+risposta);
+  	})
 
-};
-// Storing input from login-form
-function store() {
-    localStorage.setItem('email', email);
-    localStorage.setItem('password', password);
-}
+	};
 
-function check(email, password) {
-    // stored data from the login-form
-    var storedEmail = localStorage.getItem('email');
-    var storedPassword = localStorage.getItem('password');
-    // entered data from the login-form
-    var userEmail = email;
-    var userPassword = password;
-    // check if stored data from register-form is equal to data from login form
-    if(userEmail == storedEmail && userPassword == storedPassword) {
-        alert('You are loged in.');
-    }else {
-        alert('Error');
-    }
-}
 
 
 
