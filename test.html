@@ -24,6 +24,7 @@
 		.imgbox{
 			max-height: 200px;
 			max-width: 200px;
+			margin: auto;
 			background-color: #e3e3e3;
 			border-radius: 50%;
 		}
@@ -67,10 +68,10 @@
 
 		var email = document.getElementById("email").value;
 		var password = document.getElementById("password").value;
-
+		var token;
 		console.log("email "+email+" password "+password);
 
-		const response = fetch('https://reqres.in/api/login', { 
+		fetch('https://reqres.in/api/login', { 
         	method: 'POST',
         	headers: {
             	'Content-Type': 'application/json',
@@ -78,17 +79,23 @@
         	body: JSON.stringify({
         	"email": email,
         	"password": password
-		})});
-		
-		response.then((data) => {
-  			console.log('Success:', data);
-		});
-		
-		response.then((data) => {
-			var risposta=data.json(); 
-			console.log(risposta);
-			console.log("token "+risposta);
+		})})
+		.then((data) => {
+  			return data.json();
+		})
+		.then((data) => {
+			console.log("DATA: "+data.token);
+			 if(data.token){
+				 token=data.token;
+				 localStorage.setItem('email', email);
+				 localStorage.setItem('token', token);
+				 localStorage.setItem('password', password);
+				 window.location.assign('C:\\Users\\angel\\login-page\\paginaAutenticata.html');
+			 }
+			 console.log("token "+token);
+
   		})
+
 	};
 
 
