@@ -64,10 +64,12 @@
 
 	<script>
 	function accedi(){
-		var token;
+
 		var email = document.getElementById("email").value;
 		var password = document.getElementById("password").value;
+
 		console.log("email "+email+" password "+password);
+
 		const response = fetch('https://reqres.in/api/login', { 
         	method: 'POST',
         	headers: {
@@ -77,25 +79,17 @@
         	"email": email,
         	"password": password
 		})});
+		
 		response.then((data) => {
-  console.log('Success:', data);
-});
+  			console.log('Success:', data);
+		});
+		
 		response.then((data) => {
-			console.log(data);
-		var risposta=data.json(); 
-		console.log(risposta);
-		console.log("token "+risposta);
-  	})
-
+			var risposta=data.json(); 
+			console.log(risposta);
+			console.log("token "+risposta);
+  		})
 	};
-
-
-
-
-
-
-
-
 
 
 </script>
