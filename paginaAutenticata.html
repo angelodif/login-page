@@ -46,6 +46,9 @@
 			width: 100%;
 			border: 1px solid #e3e3e3;
 		}
+		.forrm-control{
+			border-top: 5px;
+		}
 	</style>
 </head>
 <body class=conteiner>
@@ -54,14 +57,13 @@
             <img src="https://npm.github.io/new-docs/public/images/publishing.svg">
         </div>
         <p>
-            <b>WELCOME</b>
+            <b>Benvenuto</b>
         </p>
         <div id="dati">
 
         </div>
         <button id="logout">Log out</button>
      </div>
-	<p>ciao</p>
     <div id="dati"></div>
 
 </body>
@@ -71,9 +73,8 @@
       var email= localStorage.getItem("email");
       var password= localStorage.getItem("password");
       var token= localStorage.getItem("token");
-      $("#dati").html("EMAIL: "+email+"<br>PASSWORD: "+password+"<br>TOKEN: "+token);
-      
-    });
+      $("#dati").html("<div class='form-control'><label>Email:</label><input type='text' value='"+email+"' readonly=''></div><div class='form-control'><label>Password:</label><input type='text' value='"+password+"' readonly=''></div><div class='form-control'><label>Token:</label><input type='text' value='"+token+"' readonly=''></div>");
+      });
     $("#logout").click(function(){
 				 localStorage.removeItem('email');
 				 localStorage.removeItem('token');

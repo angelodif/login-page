@@ -44,6 +44,9 @@
 			width: 100%;
 			border: 1px solid #e3e3e3;
 		}
+		.forrm-control{
+			border-top: 5px;
+		}
 	</style>
 </head>
 <body class=conteiner>
@@ -54,12 +57,14 @@
 			<p>
 				<b>Sign in</b>
 			</p>
-			<p>
+			<div class="form-control">
 				<label>Email</label>
 				<input type="text" id="email" name="email">
+			</div>
+			<div class="form-control">
 				<label>Password</label>
 				<input type="password" id="password" name="password">
-			</p>
+			</div>
 			<button onclick="accedi()">Sign in</button>
 		 </div>
 
